@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Permis
 class MyUserManager(BaseUserManager):
     """MYUSER MANAGER"""
 
-    def self(self, email, password=None, **extra_fields):
+    def create_user(self, email, password=None, **extra_fields):
         user = self.model(email=email, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
