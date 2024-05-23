@@ -4,3 +4,4 @@ flake8==3.9.2
 psycopg2>=2.8.6<=2.9
 pytest==8.2.0
 pytest-django==4.8.0
+pillow

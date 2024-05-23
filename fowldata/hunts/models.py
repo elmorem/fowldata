@@ -11,4 +11,4 @@ class Hunt(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     total_ducks = models.IntegerField(default=0, help_text=" Total number of ducks taken during hunt.")
     total_geese = models.IntegerField(default=0, help_text=" Total number of geese taken during hunt.")
-    photo= models.ImageField(blank=True,)
+    photo_url = models.URLField() 
