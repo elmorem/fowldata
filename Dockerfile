@@ -9,9 +9,6 @@ COPY ./fowldata/ /fowldata
 WORKDIR /fowldata
 EXPOSE 8000
 
-FROM ghcr.io/osgeo/gdal:alpine-small-latest
-RUN /home:/home ghcr.io/osgeo/gdal:alpine-small-latest gdalinfo $PWD/my.tif
-
 ARG DEV=false
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
