@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.gis',
-    #  fowldata
+    # 'django.contrib.gis',
+    'fowldata',
     'hunts',
     'accounts',
 ]
@@ -136,5 +136,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "accounts.MyUser"
 
-GDAL_LIBRARY_PATH=glob('/usr/lib/libgdal.so.*')
-GEOS_LIBRARY_PATH=glob('/usr/lib/libgeos_c.so.*')
+# GDAL_LIBRARY_PATH=glob('/usr/lib/'psycopg2-binary'.so.*')
+# GEOS_LIBRARY_PATH=glob('/usr/lib/libgeos_c.so.*')
