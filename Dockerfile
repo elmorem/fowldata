@@ -1,9 +1,4 @@
-# So i thik what I want to do here is to pull in the base gdal image
-# build out gdal and its dependencies.  The do a second stage where
-# i add python anddependencies
-
-FROM python:3.9-slim
-
+FROM python:3.10-alpine3.19
 LABEL maintainer="elmorem@gmail.com"
 
 ENV PYTHONUNBUFFERED 1
@@ -14,16 +9,14 @@ COPY ./fowldata/ /fowldata
 WORKDIR /fowldata
 EXPOSE 8000
 
-RUN apt-get update -y && \
-    apt-get install -y \
-    binutils \
-    gdal-bin \
-    libproj-dev \
-    git && \
-    python -m venv /py && \
+ARG DEV=false
+RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
-    pip install --upgrade pip && \
-    apt-get install -y postgresql-client && \
+    apk add --update --no-cache postgresql-client && \
+    apk add --update --no-cache --virtual .tmp-build-deps \
+        build-base postgresql-dev musl-dev && \
+    apk add --update --no-cache  make cmake binutils proj-dev geos pkgconf && \
+    apk add --update --no-cache alpine-sdk gdal-dev && \
     /py/bin/pip install -r /tmp/requirements.txt && \
     if [ $DEV = "true" ]; \
         then /py/bin/pip install -r dev_requirements.txt ; \
