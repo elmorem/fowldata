@@ -1,0 +1,219 @@
+{
+    "columns": {
+        "wdir": {
+            "id": "wdir",
+            "name": "Wind Direction",
+            "type": 2,
+            "unit": null
+        },
+        "latitude": {
+            "id": "latitude",
+            "name": "Latitude",
+            "type": 2,
+            "unit": null
+        },
+        "cloudcover": {
+            "id": "cloudcover",
+            "name": "Cloud Cover",
+            "type": 2,
+            "unit": "%"
+        },
+        "mint": {
+            "id": "mint",
+            "name": "Minimum Temperature",
+            "type": 2,
+            "unit": "degF"
+        },
+        "datetime": {
+            "id": "datetime",
+            "name": "Date time",
+            "type": 3,
+            "unit": null
+        },
+        "precip": {
+            "id": "precip",
+            "name": "Precipitation",
+            "type": 2,
+            "unit": "in"
+        },
+        "solarradiation": {
+            "id": "solarradiation",
+            "name": "Solar Radiation",
+            "type": 2,
+            "unit": "W/m^2"
+        },
+        "dew": {
+            "id": "dew",
+            "name": "Dew Point",
+            "type": 2,
+            "unit": "degF"
+        },
+        "humidity": {
+            "id": "humidity",
+            "name": "Relative Humidity",
+            "type": 2,
+            "unit": "%"
+        },
+        "precipcover": {
+            "id": "precipcover",
+            "name": "Precipitation Cover",
+            "type": 2,
+            "unit": "%"
+        },
+        "longitude": {
+            "id": "longitude",
+            "name": "Longitude",
+            "type": 2,
+            "unit": null
+        },
+        "info": {
+            "id": "info",
+            "name": "Info",
+            "type": 1,
+            "unit": null
+        },
+        "temp": {
+            "id": "temp",
+            "name": "Temperature",
+            "type": 2,
+            "unit": "degF"
+        },
+        "address": {
+            "id": "address",
+            "name": "Address",
+            "type": 1,
+            "unit": null
+        },
+        "maxt": {
+            "id": "maxt",
+            "name": "Maximum Temperature",
+            "type": 2,
+            "unit": "degF"
+        },
+        "visibility": {
+            "id": "visibility",
+            "name": "Visibility",
+            "type": 2,
+            "unit": "mi"
+        },
+        "wspd": {
+            "id": "wspd",
+            "name": "Wind Speed",
+            "type": 2,
+            "unit": "mph"
+        },
+        "solarenergy": {
+            "id": "solarenergy",
+            "name": "Solar Energy",
+            "type": 2,
+            "unit": "J/m^2"
+        },
+        "resolvedAddress": {
+            "id": "resolvedAddress",
+            "name": "Resolved Address",
+            "type": 1,
+            "unit": null
+        },
+        "heatindex": {
+            "id": "heatindex",
+            "name": "Heat Index",
+            "type": 2,
+            "unit": "degF"
+        },
+        "weathertype": {
+            "id": "weathertype",
+            "name": "Weather Type",
+            "type": 1,
+            "unit": null
+        },
+        "snowdepth": {
+            "id": "snowdepth",
+            "name": "Snow Depth",
+            "type": 2,
+            "unit": "in"
+        },
+        "sealevelpressure": {
+            "id": "sealevelpressure",
+            "name": "Sea Level Pressure",
+            "type": 2,
+            "unit": "mb"
+        },
+        "snow": {
+            "id": "snow",
+            "name": "Snow",
+            "type": 2,
+            "unit": "in"
+        },
+        "name": {
+            "id": "name",
+            "name": "Name",
+            "type": 1,
+            "unit": null
+        },
+        "wgust": {
+            "id": "wgust",
+            "name": "Wind Gust",
+            "type": 2,
+            "unit": "mph"
+        },
+        "conditions": {
+            "id": "conditions",
+            "name": "Conditions",
+            "type": 1,
+            "unit": null
+        },
+        "windchill": {
+            "id": "windchill",
+            "name": "Wind Chill",
+            "type": 2,
+            "unit": "degF"
+        }
+    },
+    "remainingCost": 0,
+    "queryCost": 1,
+    "messages": null,
+    "locations": {
+        "38.452731, -121.624356": {
+            "stationContributions": null,
+            "values": [
+                {
+                    "wdir": 199.92,
+                    "temp": 73.1,
+                    "maxt": 86.9,
+                    "visibility": 9.9,
+                    "wspd": 11.0,
+                    "datetimeStr": "2019-06-13T00:00:00-07:00",
+                    "solarenergy": 25.6,
+                    "heatindex": 87.1,
+                    "cloudcover": 4.3,
+                    "mint": 61.1,
+                    "datetime": 1560384000000,
+                    "precip": 0.0,
+                    "solarradiation": 444.6,
+                    "weathertype": "",
+                    "snowdepth": 0.0,
+                    "sealevelpressure": 1009.4,
+                    "snow": 0.0,
+                    "dew": 58.0,
+                    "humidity": 61.01,
+                    "precipcover": 0.0,
+                    "wgust": 20.8,
+                    "conditions": "Clear",
+                    "windchill": null,
+                    "info": null
+                }
+            ],
+            "id": "38.452731, -121.624356",
+            "address": "38.452731, -121.624356",
+            "name": "38.452731, -121.624356",
+            "index": 0,
+            "latitude": 38.452731,
+            "longitude": -121.624356,
+            "distance": 0.0,
+            "time": 0.0,
+            "tz": "America/Los_Angeles",
+            "currentConditions": null,
+            "alerts": null
+        }
+    }
+}
