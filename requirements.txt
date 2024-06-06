@@ -4,5 +4,5 @@ flake8==3.9.2
 psycopg2-binary>=2.8.6<=2.9
 pytest==8.2.0
 pytest-django==4.8.0
-pillow
-gdal==3.9.0
+tzdata
+django-environ 
