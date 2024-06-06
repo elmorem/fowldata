@@ -2,14 +2,54 @@ FROM ubuntu:24.04
 
 # BAsic BUilding blocks
 RUN apt-get update \
-    && apt-get -y install software-properties-common netcat gcc postgresql \
+    && apt-get -y install software-properties-common \
+        python3.12 \
+        cmake \
+        make \
+
     && apt-get clean 
 
 # Now PROJ
+RUN apt-get -y install proj-bin
 # NOW geos
+RUN apt-get -y install geos-bin \
+        libgeos++-dev \
+        libgeos-dev \
+        libgeos-doc \
+
 # NOW GDAL
-
-
-# Now Python
+RUN apt-get -y install gdal-bin \
+        gdal-data \
+        gdal-plugins \
+        libgdal-dev \
+        libgdal-doc \
+        libgdal-grass \
+        python3-gdal \
 
 # Now project files
+COPY ./requirements.txt /tmp/requirements.txt
+COPY ./dev_requirements.txt /tmp/dev_requirements
+COPY ./fowldata/ /fowldata
+WORKDIR /fowldata
+EXPOSE 8001
+
+ARG DEV=false
+# now project specifi installs , postgis
+RUN pip install --upgrade pip
+
+RUN python -m venv /py && \
+    /py/bin/pip install --upgrade pip && \
+    /py/bin/pip install -r /tmp/requirements.txt && \
+    if [ $DEV = "true" ]; \
+        then /py/bin/pip install -r dev_requirements.txt ; \
+    fi && \
+    rm -rf /tmp && \
+    adduser \
+        --disabled-password \
+        --no-create-home \
+        django-user
+
+ENV PATH="/py/bin:$PATH"
+
+USER django-user
+
