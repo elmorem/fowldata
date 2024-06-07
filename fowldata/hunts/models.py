@@ -1,3 +1,5 @@
+from django.contrib.gis.db import models as gis_models
+from django.contrib.gis.geos import Point
 from django.db import models
 
 from accounts.models import MyUser
@@ -12,6 +14,7 @@ class Hunt(models.Model):
     total_ducks = models.IntegerField(default=0, help_text=" Total number of ducks taken during hunt.")
     total_geese = models.IntegerField(default=0, help_text=" Total number of geese taken during hunt.")
     photo_url = models.URLField() 
+    location = gis_models.PointField(geography=True, default=Point(0.0, 0.0)) 
     latitude = models.FloatField()
     longitude = models.FloatField()
     #  weather = models.ForeignKey(Weather, on_delete=models.CASCADE)
