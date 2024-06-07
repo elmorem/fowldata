@@ -1,0 +1,32 @@
+FROM python:3.11-bullseye
+LABEL maintainer="elmorem@gmail.com"
+
+ENV PYTHONUNBUFFERED 1
+
+COPY ./requirements.txt /tmp/requirements.txt
+COPY ./dev_requirements.txt /tmp/dev_requirements
+COPY ./fowldata/ /fowldata
+WORKDIR /fowldata
+EXPOSE 8000
+
+ARG DEV=false
+RUN python -m venv /py && \
+    /py/bin/pip install --upgrade pip && \
+    apt-get update -y && \
+    apt-get install -y postgresql-client && \
+    apt-get install -y build-base postgresql-dev musl-dev && \
+    apt-get install -y binutils libproj-dev gdal-bin && \
+    apt-get install -y make cmake geos pkgconf && \
+    /py/bin/pip install -r /tmp/requirements.txt && \
+    if [ $DEV = "true" ]; \
+        then /py/bin/pip install -r dev_requirements.txt ; \
+    fi && \
+    rm -rf /tmp && \
+    adduser \
+        --disabled-password \
+        --no-create-home \
+        django-user
+
+ENV PATH="/py/bin:$PATH"
+
+USER django-user
