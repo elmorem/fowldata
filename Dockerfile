@@ -64,5 +64,4 @@ USER django-user
 # proj --version
 # psql --version
 # pkg-config --modversion proj
-
-
+# access psql  exec into container psql -U devuser -d devdb 
