@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  fowldata:
+  fowldata:  # container name 
       build:
         context: .
         args:
@@ -25,16 +25,15 @@ services:
 
 
   postgres:
-    image: postgres:13-alpine
+    image: postgis/postgis:16-3.4
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql
     environment:
       - POSTGRES_DB=devdb
       - POSTGRES_USER=devuser
       - POSTGRES_PASSWORD=mysecretpassword
+    restart: "on-failure"
 
 volumes:
-  postgres-data:
-
-
+  postgres_data:
 
