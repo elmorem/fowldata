@@ -7,6 +7,7 @@ from accounts.models import MyUser
 class HuntManager(models.Manager):
     pass
 
+
 class Hunt(models.Model):
     user = models.ForeignKey(MyUser, on_delete=models.CASCADE)
     date_of_hunt = models.DateField()
@@ -17,7 +18,8 @@ class Hunt(models.Model):
     location = gis_models.PointField(geography=True, default=Point(0.0, 0.0)) 
     latitude = models.FloatField()
     longitude = models.FloatField()
-    #  weather = models.ForeignKey(Weather, on_delete=models.CASCADE)
+    weather_id = models.models.IntegerField(null=True, blank=True)
+
 
 class WeatherManager(models.Manager):
     pass
@@ -39,3 +41,14 @@ class Weather (models.Model):
     winddir = models.FloatField()
     sunrise = models.CharField(max_length=100)
     sunset = models.CharField(max_length=100)
+
+
+class LocationManager(models.Manager):
+    pass
+
+class Location(models.Model):
+    lat_long = gis_models.PointField(geography=True, default=Point(0.0, 0.0))
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+    date_added = models.DateTimeField(auto_now_add=True)
+    
