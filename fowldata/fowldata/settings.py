@@ -29,7 +29,9 @@ SECRET_KEY = 'django-insecure-vldd)$bgn-hms&unj1qr9vgb759d0ul($t*##n*0ps%-oh16y&
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '0.0.0.0'
+    '0.0.0.0',
+    'localhost',
+    'localhost:8000',
 ]
 
 
@@ -60,10 +62,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'fowldata.urls'
 
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -135,3 +139,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "accounts.MyUser"
+
+#openweather_api key
+# api.openweathermap.org 
+OW_API_KEY = " 6cf287f4fb46986c1497590278c5f4aa"

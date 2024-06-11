@@ -1,0 +1,10 @@
+{% block content %}
+    <h1>All Your Hunts</h1>
+    <p>Hello World</p>
+    <p>Here are all the hunts you have created:</p>
+    <ul>
+        {% for hunt in hunts %}
+            <li><a href="{% url 'hunt_detail' hunt.id %}">{{ hunt.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

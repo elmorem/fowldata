@@ -18,7 +18,7 @@ class Hunt(models.Model):
     location = gis_models.PointField(geography=True, default=Point(0.0, 0.0)) 
     latitude = models.FloatField()
     longitude = models.FloatField()
-    weather_id = models.models.IntegerField(null=True, blank=True)
+    weather_id = models.IntegerField(null=True, blank=True)
 
 
 class WeatherManager(models.Manager):
