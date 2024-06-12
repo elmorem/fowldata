@@ -143,3 +143,4 @@ AUTH_USER_MODEL = "accounts.MyUser"
 #openweather_api key
 # api.openweathermap.org 
 OW_API_KEY = " 6cf287f4fb46986c1497590278c5f4aa"
+MAPBOX_ACCESS_TOKEN = "pk.eyJ1IjoibWFya2VsbW9yZSIsImEiOiJjbHg5cTVwcjcxNGg5Mmlwem54bG5tOTM0In0.YCWAhDPq7GufYwVjlOz3dQ"

@@ -5,7 +5,9 @@ from django.db import models
 from accounts.models import MyUser
 
 class HuntManager(models.Manager):
-    pass
+    def create_hunt(self, location):
+        pass
+
 
 
 class Hunt(models.Model):

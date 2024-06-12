@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.conf import settings
 
 # Create your views here.
 
@@ -15,4 +16,9 @@ def update_hunt(request):
 
 
 def create_hunt(request):
-    user_id = request.user.id
+    context = {
+        'user_id': request.user.id,
+        'MAPBOX_ACCESS_TOKEN': settings.MAPBOX_ACCESS_TOKEN,
+
+    }
+    return render(request, 'hunts/create_hunt.html')
