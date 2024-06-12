@@ -16,16 +16,13 @@ def update_hunt(request):
 
 
 def create_hunt(request):
+    context = {
+            'user_id': request.user.id,
+            'MAPBOX_ACCESS_TOKEN': settings.MAPBOX_ACCESS_TOKEN,
+    }
     if request.method == 'POST':
         form = CreateHuntForm(request.POST)
+        context['form'] = form
         if form.is_valid():
             form.save()
-            return render(request, 'hunts/all_hunts_by_user.html')
-
-    
-    context = {
-        'user_id': request.user.id,
-        'MAPBOX_ACCESS_TOKEN': settings.MAPBOX_ACCESS_TOKEN,
-
-    }
-    return render(request, 'hunts/create_hunt.html')
+    return render(request, 'hunts/create_hunt.html', context)

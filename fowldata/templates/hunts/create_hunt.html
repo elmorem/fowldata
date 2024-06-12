@@ -41,9 +41,12 @@
 <div id="map"></div>
 <div id="create_hunt_overlay">
     <p>Click on the map to create a new hunt!</p>
-    <form action="/create_hunt/" method="post">
+    <form action="{% url 'hunts:create_hunt' %}" method="POST">
         {% csrf_token %}
-        {{ form }}
+        {% for field in form %}
+            {{ field.label_tag }} {{ field }}
+        {% endfor %}
+        
         <input type="submit" value="Submit">
     </form>
 </div>
