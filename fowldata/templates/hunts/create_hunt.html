@@ -1,0 +1,94 @@
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="utf-8">
+    <title>Display a map on a webpage</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=yes">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css" rel="stylesheet"> 
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { 
+            position: absolute;
+            top: 0; 
+            bottom: 0; 
+            width: 100%;
+         }
+        .mapboxgl-popup {
+            max-width: 600px;
+            font:
+                12px/20px 'Helvetica Neue',
+                Arial,
+                Helvetica,
+                sans-serif;
+        }
+        #create_hunt_overlay {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 25px;
+            padding: 10px;
+            width: 75%;
+            z-index: 1;
+            opacity: 0.7;
+        #close_hunt_button {
+            line-height: 12px;
+            width: 18px;
+            font-size: 8pt;
+            font-family: tahoma;
+            margin-top: 1px;
+            margin-right: 2px;
+            position:absolute;
+            top:15;
+            right:15;
+        }
+        }
+    
+    </style>
+</head>
+<div id="map"></div>
+<div id="create_hunt_overlay">
+    <input id="close_hunt_button" type="button" onclick="hideOverlay()" value="X">
+    <h1>Click on the map to create a new hunt!</h1>
+    <form action="{% url 'hunts:create_hunt' %}" method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+            {{ field.label_tag }} {{ field }}
+        {% endfor %}
+        
+        <b><input type="submit" value="Submit"></b>
+    </form>
+</div>
+<script>
+    function showOverlay(){
+        $("#create_hunt_overlay").show();
+                }; 
+    function hideOverlay(){
+        $("#create_hunt_overlay").hide();
+                };
+
+    mapboxgl.accessToken = "pk.eyJ1IjoibWFya2VsbW9yZSIsImEiOiJjbHg5cTVwcjcxNGg5Mmlwem54bG5tOTM0In0.YCWAhDPq7GufYwVjlOz3dQ"
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/satellite-streets-v12', //the map style
+        projection: 'globe',
+        center: [-121.81, 39.32], // starting position [lng, lat]
+        zoom: 10 // starting zoom
+    });
+    const hunt_popup = new mapboxgl.Popup()
+            map.on('click', (e) => {
+                console.log(`A click event has occurred at ${e.lngLat}`);
+                hunt_popup.setLngLat(e.lngLat)
+                .setHTML('<button type="button" onclick="showOverlay()" name="create_hunt_button"> Create new hunt</button')
+                    .addTo(map); 
+            }); 
+    $(document).ready(function(){
+        $("#create_hunt_overlay").hide();
+                });
+
+</script>
+
+{% endblock %}

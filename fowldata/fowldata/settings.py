@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
+    # Third party apps
+    'bootstrap5',
+    #local apps
     'fowldata',
     'hunts',
     'accounts',
@@ -96,6 +99,9 @@ DATABASES = {
     }
 }
 
+AUTHENTICATION_BACKENDS = (
+    ('django.contrib.auth.backends.ModelBackend'),
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -143,3 +149,10 @@ AUTH_USER_MODEL = "accounts.MyUser"
 #openweather_api key
 # api.openweathermap.org 
 OW_API_KEY = " 6cf287f4fb46986c1497590278c5f4aa"
+MAPBOX_ACCESS_TOKEN = "pk.eyJ1IjoibWFya2VsbW9yZSIsImEiOiJjbHg5cTVwcjcxNGg5Mmlwem54bG5tOTM0In0.YCWAhDPq7GufYwVjlOz3dQ"
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
