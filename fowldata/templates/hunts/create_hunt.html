@@ -34,16 +34,28 @@
             width: 75%;
             z-index: 1;
             opacity: 0.7;
+        #close_hunt_button {
+            line-height: 12px;
+            width: 18px;
+            font-size: 8pt;
+            font-family: tahoma;
+            margin-top: 1px;
+            margin-right: 2px;
+            position:absolute;
+            top:15;
+            right:15;
+        }
         }
     
     </style>
 </head>
 <div id="map"></div>
 <div id="create_hunt_overlay">
-    <p>Click on the map to create a new hunt!</p>
+    <input id="close_hunt_button" type="button" onclick="hideOverlay()" value="X">
+    <h1>Click on the map to create a new hunt!</h1>
     <form action="{% url 'hunts:create_hunt' %}" method="POST">
         {% csrf_token %}
-        {% for field in form %}
+        {% for field in form.as_p %}
             {{ field.label_tag }} {{ field }}
         {% endfor %}
         
@@ -54,6 +66,9 @@
     function showOverlay(){
         $("#create_hunt_overlay").show();
                 }; 
+    function hideOverlay(){
+        $("#create_hunt_overlay").hide();
+                };
 
     mapboxgl.accessToken = "pk.eyJ1IjoibWFya2VsbW9yZSIsImEiOiJjbHg5cTVwcjcxNGg5Mmlwem54bG5tOTM0In0.YCWAhDPq7GufYwVjlOz3dQ"
     const map = new mapboxgl.Map({
