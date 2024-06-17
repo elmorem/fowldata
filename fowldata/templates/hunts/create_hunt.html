@@ -50,21 +50,11 @@
     </style>
 </head>
 <div id="map"></div>
-<div id="create_hunt_overlay">
-    <input id="close_hunt_button" type="button" onclick="hideOverlay()" value="X">
-    <h1>Click on the map to create a new hunt!</h1>
-    <form action="{% url 'hunts:create_hunt' %}" method="POST">
-        {% csrf_token %}
-        {% for field in form %}
-            {{ field.label_tag }} {{ field }}
-        {% endfor %}
-        
-        <b><input type="submit" value="Submit"></b>
-    </form>
-</div>
+
 <script>
-    function showOverlay(){
+    function showOverlay(location){
         $("#create_hunt_overlay").show();
+        console.log(location);
                 }; 
     function hideOverlay(){
         $("#create_hunt_overlay").hide();
@@ -78,17 +68,46 @@
         center: [-121.81, 39.32], // starting position [lng, lat]
         zoom: 10 // starting zoom
     });
+
     const hunt_popup = new mapboxgl.Popup()
             map.on('click', (e) => {
-                console.log(`A click event has occurred at ${e.lngLat}`);
+                console.log(e.lngLat);
+                const location = 'this is the location';
+                console.log(location);
                 hunt_popup.setLngLat(e.lngLat)
-                .setHTML('<button type="button" onclick="showOverlay()" name="create_hunt_button"> Create new hunt</button')
-                    .addTo(map); 
+                .setHTML('<button type="button" onclick="showOverlay(location)" name="create_hunt_button"> Create new hunt</button')
+                .addTo(map); 
             }); 
+
     $(document).ready(function(){
         $("#create_hunt_overlay").hide();
                 });
+    
+    var myVariable = hunt_popup.lngLat;
+    console.log(`The value of pin_location is ${myVariable}`);
+
 
 </script>
-
+<div id="create_hunt_overlay">
+    <input id="close_hunt_button" type="button" onclick="hideOverlay()" value="X">
+    <h1>Click on the map to create a new hunt!</h1>
+    <form action="{% url 'hunts:create_hunt' %}" method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+            {{ field.label_tag }} {{ field }}
+        {% endfor %}
+        
+        <b><input type="submit" value="Submit"></b>
+        <b>
+            <p>The value of myVariable is: <span id="myElement"></span></p> 
+            <p id="myElement"></p>
+            </b>
+        <b>
+            
+        </b>
+    </form>
+</div>
+<script>
+    document.getElementById('myElement').innerHTML = myVariable;
+</script>
 {% endblock %}
