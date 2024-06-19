@@ -52,10 +52,7 @@
 <div id="map"></div>
 
 <script>
-    function showOverlay(location){
-        $("#create_hunt_overlay").show();
-        console.log(location);
-                }; 
+
     function hideOverlay(){
         $("#create_hunt_overlay").hide();
                 };
@@ -71,22 +68,25 @@
 
     const hunt_popup = new mapboxgl.Popup()
             map.on('click', (e) => {
-                console.log(e.lngLat);
-                const location = 'this is the location';
+                const location = e.lngLat;
                 console.log(location);
+                const pin_loc = location.toArray();
+                const long = pin_loc[0];
+                const lat = pin_loc[1];
+                console.log(pin_loc);
                 hunt_popup.setLngLat(e.lngLat)
-                .setHTML('<button type="button" onclick="showOverlay(location)" name="create_hunt_button"> Create new hunt</button')
+                .setHTML('<button type="button" onclick="showOverlay()" name="create_hunt_button"> Create new hunt</button')
                 .addTo(map); 
-            }); 
 
+
+            }); 
     $(document).ready(function(){
         $("#create_hunt_overlay").hide();
                 });
-    
-    var myVariable = hunt_popup.lngLat;
-    console.log(`The value of pin_location is ${myVariable}`);
-
-
+    function showOverlay(long){
+        $("#create_hunt_overlay").show();
+        console.log(long);
+                }; 
 </script>
 <div id="create_hunt_overlay">
     <input id="close_hunt_button" type="button" onclick="hideOverlay()" value="X">
@@ -99,15 +99,11 @@
         
         <b><input type="submit" value="Submit"></b>
         <b>
-            <p>The value of myVariable is: <span id="myElement"></span></p> 
-            <p id="myElement"></p>
-            </b>
         <b>
             
         </b>
     </form>
 </div>
 <script>
-    document.getElementById('myElement').innerHTML = myVariable;
 </script>
 {% endblock %}

@@ -4,6 +4,7 @@ flake8==3.9.2
 psycopg2-binary>=2.8.6<=2.9
 pytest==8.2.0
 pytest-django==4.8.0
-tzdata
-django-environ 
-django-bootstrap-v5
+tzdata==2024.1
+django-environ==0.11.2
+django-bootstrap-v5==1.0.11
+django-map-widgets==0.4.2

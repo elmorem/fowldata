@@ -156,3 +156,18 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+MAP_WIDGETS = {
+        "MapboxPointFieldWidget": {
+        "access_token": MAPBOX_ACCESS_TOKEN,
+        "markerFitZoom": 12,
+        "mapOptions": {
+            "animate": True,
+            "zoom": 10,
+            "center": (51.515618, -0.091998)
+        },
+        "geocoderOptions": {
+            "zoom": 7
+        }
+    }
+}
