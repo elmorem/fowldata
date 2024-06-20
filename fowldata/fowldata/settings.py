@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     # Third party apps
     'bootstrap5',
+   'mapwidgets',
+   'rest_framework',
     #local apps
     'fowldata',
     'hunts',
