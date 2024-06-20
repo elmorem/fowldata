@@ -8,7 +8,6 @@ from .forms import CreateHuntForm
 def all_hunts(request):
     return render(request, 'hunts/all_hunts_by_user.html')
 
-
 def get_hunt(request):
     pass
 
@@ -28,7 +27,7 @@ def create_new_hunt(request):
             form.save()
     print(context)
     return render(request, 'hunts/_create_new_hunt.html', context)
-@login_required
+# @login_required
 def create_hunt(request):
     context = {
             'user_id': request.user.id,
