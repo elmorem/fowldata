@@ -25,8 +25,6 @@ def login(request):
     context['form'] = form
     if request.method == 'POST': 
         if form.is_valid():
-            print(form.cleaned_data)
-            form.save()
-            return redirect(reverse('accounts:login'))
+            return redirect(reverse('home'))
     else:
         return render(request, 'accounts/login.html', context)

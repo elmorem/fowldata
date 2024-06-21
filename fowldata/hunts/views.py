@@ -21,13 +21,11 @@ def create_hunt(request):
             'user_id': request.user.id,
             'MAPBOX_ACCESS_TOKEN': settings.MAPBOX_ACCESS_TOKEN,
     }
+    form = CreateHuntForm(request.POST) 
+    context['form'] = form
     if request.method == 'POST':
-        form = CreateHuntForm() # does this need to get a request.POST?
-        context['form'] = form
-        print(f"prointing context from within create_hunt: {context}")
         if form.is_valid():
             form.save()
             return HttpResponseRedirect("hunts/thank_you/")
     else:
-        form = CreateHuntForm()
-    return render(request, 'hunts/create_hunt.html', context)
+        return render(request, 'hunts/create_hunt.html', context)

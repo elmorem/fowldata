@@ -24,11 +24,21 @@
           <a class="nav-link" href="{% url 'hunts:create_hunt' %}">Hunts</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Account</a>
+          <a class="nav-link" href="#">Reports</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Accounts
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'accounts:signup' %}">Create Account</a>
+            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="{% url 'accounts:login' %}">Login</a>
+            <a class="dropdown-item" href="#">Logout</a>
+          </div>
         </li>
+
       </ul>
     </div>
   </nav>
