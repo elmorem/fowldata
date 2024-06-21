@@ -1,16 +1,24 @@
 {% extends "base.html" %} 
 {% load static %}
+{% block content %}
 <head>
 <style>
+    #signup_form {
+        font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
+        padding: 20px;
+        top: 15;
+        right: 15;
+    }
+
 </style>
 </head>
-{% block content %}
-<h1>Register New User Here </h1>
+
 <div id="signup_form">
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Submit">
-</form>
+    <h1>Register New User Here </h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Submit">
+    </form>
 </div>
 {% endblock content%}

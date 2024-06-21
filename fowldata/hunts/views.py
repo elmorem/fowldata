@@ -15,18 +15,6 @@ def get_hunt(request):
 def update_hunt(request):
     pass
 
-def create_new_hunt(request):
-    context = {
-        'user_id': request.user.id,
-        'MAPBOX_ACCESS_TOKEN': settings.MAPBOX_ACCESS_TOKEN,
-    }
-    if request.method == 'POST':
-        form = CreateHuntForm(request.POST)
-        context['form'] = form
-        if form.is_valid():
-            form.save()
-    print(context)
-    return render(request, 'hunts/_create_new_hunt.html', context)
 # @login_required
 def create_hunt(request):
     context = {
