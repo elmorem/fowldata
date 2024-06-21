@@ -48,10 +48,8 @@ INSTALLED_APPS = [
 
     # Third party apps
     'bootstrap5',
+
     'widget_tweaks',
-    # 'mapwidgets',
-    
-    
     #local apps
     'fowldata',
     'hunts',
