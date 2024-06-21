@@ -1,5 +1,6 @@
-from django.contrib.gis import forms
-from django.forms import ModelForm, Textarea
+from django import forms
+from django.forms import ModelForm
+
 
 from hunts.models import Hunt
 class CreateHuntForm(ModelForm):
@@ -8,60 +9,3 @@ class CreateHuntForm(ModelForm):
         fields = ['date_of_hunt', 'photo_url', 'location', 
                   'total_ducks', 'total_geese', 'bird1', 'bird2',
                   'notes' ]
-        widgets = {
-            "date_of_hunt": forms.DateInput(attrs={"type": "date"}),
-            "location": forms.OSMWidget(attrs={'map_width': 800, 'map_height': 500}),
-            "total_ducks": forms.NumberInput(attrs={"min": 0}), 
-            "total_geese": forms.NumberInput(attrs={"min": 0}),
-            "bird1": forms.Select(attrs={"class": "form-select"}),
-            "bird2": forms.Select(attrs={"class": "form-select"}),
-            "bird3": forms.Select(attrs={"class": "form-select"}),
-            "bird4": forms.Select(attrs={"class": "form-select"}),
-            "bird5": forms.Select(attrs={"class": "form-select"}),
-            "bird6": forms.Select(attrs={"class": "form-select"}),
-            "bird7": forms.Select(attrs={"class": "form-select"}),
-            "bird8": forms.Select(attrs={"class": "form-select"}),
-            "bird9": forms.Select(attrs={"class": "form-select"}),
-            "bird10": forms.Select(attrs={"class": "form-select"}),
-            "bird11": forms.Select(attrs={"class": "form-select"}),
-            "bird12": forms.Select(attrs={"class": "form-select"}),
-            "bird13": forms.Select(attrs={"class": "form-select"}),
-            "bird14": forms.Select(attrs={"class": "form-select"}),
-            "bird15": forms.Select(attrs={"class": "form-select"}),
-            "bird16": forms.Select(attrs={"class": "form-select"}),
-            "bird17": forms.Select(attrs={"class": "form-select"}),
-            "bird18": forms.Select(attrs={"class": "form-select"}),
-            "bird19": forms.Select(attrs={"class": "form-select"}),
-            "bird20": forms.Select(attrs={"class": "form-select"}),
-            "bird21": forms.Select(attrs={"class": "form-select"}),
-            "bird22": forms.Select(attrs={"class": "form-select"}),
-            "bird23": forms.Select(attrs={"class": "form-select"}),
-            "bird24": forms.Select(attrs={"class": "form-select"}),
-            "bird25": forms.Select(attrs={"class": "form-select"}),
-            "bird26": forms.Select(attrs={"class": "form-select"}),
-            "bird27": forms.Select(attrs={"class": "form-select"}),
-            "bird28": forms.Select(attrs={"class": "form-select"}),
-            "bird29": forms.Select(attrs={"class": "form-select"}),
-            "bird30": forms.Select(attrs={"class": "form-select"}),
-            "bird31": forms.Select(attrs={"class": "form-select"}),
-            "bird32": forms.Select(attrs={"class": "form-select"}),
-            "bird33": forms.Select(attrs={"class": "form-select"}),
-            "bird34": forms.Select(attrs={"class": "form-select"}),
-            "bird35": forms.Select(attrs={"class": "form-select"}),
-            "bird36": forms.Select(attrs={"class": "form-select"}),
-            "bird37": forms.Select(attrs={"class": "form-select"}),
-            "bird38": forms.Select(attrs={"class": "form-select"}),
-            "bird39": forms.Select(attrs={"class": "form-select"}),
-            "bird40": forms.Select(attrs={"class": "form-select"}),
-            "bird41": forms.Select(attrs={"class": "form-select"}),
-            "bird42": forms.Select(attrs={"class": "form-select"}),
-            "bird43": forms.Select(attrs={"class": "form-select"}),
-            "bird44": forms.Select(attrs={"class": "form-select"}),
-            "bird45": forms.Select(attrs={"class": "form-select"}),
-            "bird46": forms.Select(attrs={"class": "form-select"}),
-            "bird47": forms.Select(attrs={"class": "form-select"}),
-            "bird48": forms.Select(attrs={"class": "form-select"}),
-            "bird49": forms.Select(attrs={"class": "form-select"}),
-            "bird50": forms.Select(attrs={"class": "form-select"}),
-
-        }

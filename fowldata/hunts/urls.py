@@ -1,5 +1,4 @@
 from django.urls import re_path
-
 from hunts import views
 
 app_name = 'hunts'

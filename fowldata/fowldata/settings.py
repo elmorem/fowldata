@@ -45,10 +45,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
+
     # Third party apps
     'bootstrap5',
-   'mapwidgets',
-   'rest_framework',
+
+    'widget_tweaks',
     #local apps
     'fowldata',
     'hunts',
@@ -159,17 +160,19 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-MAP_WIDGETS = {
-        "MapboxPointFieldWidget": {
-        "access_token": MAPBOX_ACCESS_TOKEN,
-        "markerFitZoom": 12,
-        "mapOptions": {
-            "animate": True,
-            "zoom": 10,
-            "center": (51.515618, -0.091998)
-        },
-        "geocoderOptions": {
-            "zoom": 7
-        }
-    }
-}
+# MAP_WIDGETS = {
+#         "MapboxPointFieldWidget": {
+#         "access_token": MAPBOX_ACCESS_TOKEN,
+#         "markerFitZoom": 12,
+#         "mapOptions": {
+#            #  "style": 'mapbox://styles/mapbox/satellite-streets-v12', 
+#             "animate": True,
+#             "zoom": 10,
+#             "center": (39.3173, -121.7955)
+
+#         },
+#         "geocoderOptions": {
+#             "zoom": 7
+#         }
+#     }
+# }

@@ -1,0 +1,23 @@
+{% load static %}
+{% block content %}
+
+<div class="NewHuntFormWrapper"> 
+     
+    <input id="close_hunt_button" type="button" onclick="hideOverlay()" value="X">
+    <h1>Click on the map to create a new hunt!</h1>
+   <form action="{% url 'hunts:create_hunt' %}" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="fieldWrapper">
+             <ul>   {{ field.errors }} </ul>
+             <ul>  {{ field.label_tag }} {{ field }}</ul>
+             <ul> somethinng for each field</ul>
+            </div>
+        {% endfor %}
+
+        <p id='latitude'> some text </p>
+        <p id='longitude'> some more text </p>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+{% endblock %}
