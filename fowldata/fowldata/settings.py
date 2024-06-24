@@ -48,6 +48,8 @@ INSTALLED_APPS = [
 
     # Third party apps
     'bootstrap5',
+    "crispy_forms",
+    "crispy_bootstrap5",
 
     'widget_tweaks',
     #local apps
@@ -159,6 +161,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 # MAP_WIDGETS = {
 #         "MapboxPointFieldWidget": {
