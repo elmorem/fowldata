@@ -8,30 +8,12 @@
     #login_form {
         margin: 20px;
         padding: 20px;
-
-    
     }
 </style>
 
 </head>
 <div id="login_form">
     <h1>Login Here </h1>
-    <form method="POST">
-        {% csrf_token %}
-        {% crispy form %}
-        {% comment %} {% for field in form.visible_fields %}
-        <div class="form-group">
-        <ul>
-          <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-          {{ field|add_class:'form-control' }}
-          {% comment %} {% for error in field.errors %}
-            <span class="help-block">{{ error }}</span>
-          {% endfor %} 
-        </ul>
-        </div>
-      {% endfor %} {% endcomment %}
-
-        <input type="submit" value="Submit">
-    </form>
+    {% crispy form form.helper %}
 </div>
 {% endblock content%}
