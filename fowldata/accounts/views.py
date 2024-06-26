@@ -33,8 +33,12 @@ def login(request):
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
-            login(request, user)
-            return redirect(reverse('home'))
+            if user:
+                login(request, user)
+                return redirect(reverse('home'))
+            else:
+                context['error'] = 'Invalid username or password'
+                "say that it didn't work"
         if not form.is_valid():
             return render(request, 'accounts/login.html', {'form': form})
     else:

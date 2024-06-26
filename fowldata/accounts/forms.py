@@ -12,6 +12,7 @@ user = get_user_model()
 class SignUpForm(forms.Form):
     username = forms.CharField(max_length=255)
     email = forms.EmailField(max_length=255)
+    name = forms.CharField(max_length=255)
     password = forms.CharField(max_length=255, widget=forms.PasswordInput)
     password2 = forms.CharField(max_length=255, widget=forms.PasswordInput)
 
