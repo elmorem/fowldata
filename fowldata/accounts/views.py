@@ -22,7 +22,7 @@ def signup(request):
         return render(request, 'accounts/signup.html', {'form': form})
 
 
-def login(request):
+def login_view(request):
     print("we are trying to login")
     context = {}
     if request.method == 'POST': 
