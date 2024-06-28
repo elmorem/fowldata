@@ -15,7 +15,7 @@ def get_hunt(request):
 def update_hunt(request):
     pass
 
-# @login_required
+@login_required
 def create_hunt(request):
     context = {
             'user_id': request.user.id,
