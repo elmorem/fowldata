@@ -45,50 +45,38 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
         </li>
-        <!-- Section for links related to Accounts -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Accounts</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{% url 'accounts:signup' %}">Create Account</a></li>
-            <li><a class="dropdown-item" href="{% url 'accounts:login' %}">Login</a></li>
-            <li><a class="dropdown-item" href="{% url 'accounts:profile' %}">Profile</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
-          </ul>
-        </li>
-
-
+        
+<!-- Section for logged in user accounts-->
+      {# Invisible div to prevent overlap of absolute positioned elements #}
+      <li class="nav-item dropdown" style="width: 150px"></li>
+      <ul class="navbar-nav position-absolute end-0 mx-4">
+        {# Create a login or logout link depending whether a user is logged in or not #}
+        {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Accounts</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'accounts:login' %}">Login</a></li>
+                <li><a class="dropdown-item" href="{% url 'accounts:profile' %}">Profile</a></li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+              </ul>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'accounts:login' %}">Login/Register</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Accounts</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'accounts:signup' %}">Create Account</a></li>
+                <li><a class="dropdown-item" href="{% url 'accounts:login' %}">Login</a></li>
+              </ul>
+            </li>
+        {% endif %}
+      </ul>
       </ul>
     </div>
   </div>
 </nav>
-
-
-{% comment %} 
-  This is a comment block. 
-  this copde to make the login shit appear at the right
-
-                          <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Blog</a>
-                        </li>
-                        {# Invisible div to prevent overlap of absolute positioned elements #}
-                        <li class="nav-item" style="width: 150px"></li>
-                        <ul class="navbar-nav position-absolute end-0 mx-3">
-                            {# Create a login or logout link depending whether a user is logged in or not #}
-                            {% if app.user %}
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ path('profile_home') }}">My Profile</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
-                                </li>
-                            {% else %}
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ path('app_login') }}">Login/Register</a>
-                                </li>
-                            {% endif %}
-                        </ul>
- 
-{% endcomment %}
 
 {% endblock nav %} 
 
