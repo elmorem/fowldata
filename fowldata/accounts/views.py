@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, get_user_model, login
+from django.contrib.auth import authenticate, get_user_model, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
@@ -53,3 +53,7 @@ def profile(request):
         "username": request.user.username,
     }
     return render(request, 'accounts/profile.html', context)
+
+def logout_view(request):
+    logout(request)
+    return render(request,'accounts/logout.html')
