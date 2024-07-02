@@ -1,0 +1,12 @@
+{% extends "base.html" %} 
+{% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+{% block content %}
+<p>  </p>
+{% if user.is_authenticated %}
+<p> Welcome, {{ user.username }} you have not been logged out.</p>
+{% else %}
+<p> You have been logged out </p>
+{% endif %}
+{% endblock %}
