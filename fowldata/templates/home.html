@@ -6,7 +6,7 @@
 <body>
 <p>"This is the home page."</p>
 {% if user.is_authenticated %}
-<ul>user is authentic</ul>
+<ul>Welcome {{ user.username }}</ul>
 {% else %}
 <ul>user is not authentic</ul>
 {% endif %}
