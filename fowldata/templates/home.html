@@ -9,6 +9,7 @@
 <ul>Welcome {{ user.username }}</ul>
 {% else %}
 <ul>user is not authentic</ul>
+Welcome to the home page. Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'signup' %}">register</a>.
 {% endif %}
 
 </body>
